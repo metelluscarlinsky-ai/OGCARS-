@@ -63,7 +63,7 @@ async function verifyPayment(id){
     '<div style="font-size:60px;color:var(--accent);font-weight:900;">OK</div>'+
     '<h2 style="margin:10px 0;">Peman Konfime</h2>'+
     '<p style="color:var(--text-soft);margin-bottom:20px;">Mèsi. Nou pral kontakte w.</p>'+
-    '<a class="btn btn-primary" href="https://wa.me/50932924776" target="_blank">Kontakte nou</a></div>';
+    '<a class="btn btn-primary" href="https://wa.me/50932687915" target="_blank">Kontakte nou</a></div>';
   }else{content.innerHTML='<div class="notice">Peman an poko konfime.</div>'}}catch(e){console.error(e)}}
 const cmdIdParam=params.get('commande_id');
 if(cmdIdParam)verifyPayment(cmdIdParam);else init();
