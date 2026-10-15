@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<div id="loginView" class="login-wrap"><div class="login-card">
+  <h1>OGCARS <span>ADMIN</span></h1>
+  <p style="color:#888;margin-bottom:24px;font-size:14px;">Aksè rezève</p>
+  <div id="loginMsg"></div>
+  <form id="adminLoginForm">
+    <div class="form-group"><label>Email</label><input type="email" name="email" required autocomplete="username"></div>
+    <div class="form-group"><label>Modpas</label><input type="password" name="password" required autocomplete="current-password"></div>
+    <button type="submit" class="btn btn-primary btn-block">Konekte</button>
+  </form>
+</div></div>
+<div id="adminView" class="admin-layout" style="display:none;">
+  <aside class="sidebar">
+    <div class="sidebar-logo">OG<span>CARS</span></div>
+    <nav class="sidebar-nav">
+      <a class="active" data-view="dashboard">Dashboard</a>
+      <a data-view="cars">Machin</a>
+      <a data-view="orders">Kòmand</a>
+      <a data-view="users">Itilizatè</a>
+    </nav>
+    <button id="adminLogout" class="btn-logout">Dekonekte</button>
+  </aside>
+  <main class="main">
+    <header class="main-header">
+      <h2 id="viewTitle">Dashboard</h2>
+      <div id="adminInfo" style="color:#888;font-size:13px;"></div>
+    </header>
+    <div id="viewDashboard" class="view active"><div class="stats-grid" id="statsGrid"></div></div>
+    <div id="viewCars" class="view">
+      <div class="actions-bar">
+        <button class="btn btn-primary" id="addCarBtn">+ Ajoute Machin</button>
+        <input type="text" id="carSearch" placeholder="Chèche..." style="max-width:250px;">
+      </div>
+      <div id="carsList"></div>
+    </div>
+    <div id="viewOrders" class="view"><div id="ordersList"></div></div>
+    <div id="viewUsers" class="view"><div id="usersList"></div></div>
+  </main>
+</div>
+<div id="modalRoot"></div>
+<script src="/js/admin.js"></script>
+</body>
+</html>
