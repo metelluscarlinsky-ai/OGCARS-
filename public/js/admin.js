@@ -2,7 +2,7 @@ const API='/api';
 let authToken=localStorage.getItem('admin_token');
 let allCars=[];
 function escapeHTML(s){if(s==null)return '';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function formatPri(p){return new Intl.NumberFormat('fr-HT').format(Number(p)||0)+' HTG'}
+function formatPri(p){return '$'+new Intl.NumberFormat('en-US',{minimumFractionDigits:0,maximumFractionDigits:2}).format(Number(p)||0)}
 function showMsg(id,m,t='error'){const el=document.getElementById(id);if(!el)return;
   el.innerHTML='<div class="alert alert-'+t+'">'+escapeHTML(m)+'</div>';setTimeout(()=>{el.innerHTML=''},5000)}
 async function api(path,opt={}){
@@ -74,7 +74,7 @@ function openCarModal(car=null){
     '<div class="form-group"><label>Mak *</label><input name="mark" required value="'+(car?escapeHTML(car.mark):'')+'"></div>'+
     '<div class="form-group"><label>Modèl *</label><input name="modele" required value="'+(car?escapeHTML(car.modele):'')+'"></div>'+
     '<div class="form-group"><label>Ane</label><input name="ane" type="number" value="'+(car?(car.ane||''):'')+'"></div>'+
-    '<div class="form-group"><label>Pri (HTG) *</label><input name="pri" type="number" step="0.01" required value="'+(car?car.pri:'')+'"></div>'+
+    '<div class="form-group"><label>Pri (USD) *</label><input name="pri" type="number" step="0.01" required value="'+(car?car.pri:'')+'"></div>'+
     '<div class="form-group"><label>Kilometraj</label><input name="km" value="'+(car?escapeHTML(car.km||''):'')+'"></div>'+
     '<div class="form-group"><label>Koulè</label><input name="koule" value="'+(car?escapeHTML(car.koule||''):'')+'"></div>'+
     '<div class="form-group"><label>Transmisyon</label><select name="transmisyon"><option value="">-</option><option '+(car&&car.transmisyon==='manyèl'?'selected':'')+'>manyèl</option><option '+(car&&car.transmisyon==='otomatik'?'selected':'')+'>otomatik</option></select></div>'+

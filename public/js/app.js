@@ -5,7 +5,7 @@ b.addEventListener('click',()=>{const d=document.documentElement.getAttribute('d
 if(d){document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light');b.innerHTML='&#9788;'}
 else{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark');b.innerHTML='&#9789;'}})})();
 const yearEl=document.getElementById('year');if(yearEl)yearEl.textContent=new Date().getFullYear();
-function formatPri(p){return new Intl.NumberFormat('fr-HT').format(Number(p)||0)+' HTG'}
+function formatPri(p){return '$'+new Intl.NumberFormat('en-US',{minimumFractionDigits:0,maximumFractionDigits:2}).format(Number(p)||0)}
 function escapeHTML(s){if(s==null)return '';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function imagePlaceholder(){return 'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="100%" height="100%" fill="#eeeeee"/><text x="50%" y="50%" font-family="sans-serif" font-size="16" fill="#999" text-anchor="middle" dy=".3em">OGCARS</text></svg>')}
 async function loadCars(params={}){
